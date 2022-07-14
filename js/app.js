@@ -59,14 +59,20 @@ function characterSelect() {
 startGame("Hello");
 
 function generateCards() {
+  const cardsToTurnBad = sixRandNums();
   gameState.stackedDeck = gameState.stackedDeck.map((card, index) => {
     return { ...card, id: index + 1 };
+  });
+  gameState.stackedDeck.forEach((card) => {
+    if (cardsToTurnBad.includes(card.id)) {
+      gameState.stackedDeck[card.id - 1].isBad = true;
+    }
   });
 }
 
 function sixRandNums() {
   const resultArr = [];
-  while (resultArr.length !== 4) {
+  while (resultArr.length !== 6) {
     const randNum = Math.floor(Math.random() * 16) + 1;
     if (!resultArr.includes(randNum)) {
       resultArr.push(randNum);
