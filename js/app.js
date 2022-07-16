@@ -33,7 +33,7 @@ const gameState = {
 };
 // let counter = 0;
 
-const startGame = (text) => {
+function startGame(text) {
   //   counter++;
   console.log(gameState.players[0].name);
   //   if (counter === 2) {
@@ -49,16 +49,31 @@ const startGame = (text) => {
   //     console.log(gameState.players[0].name);
   //   }, 3000);
   //   setTimeout(characterSelect, 8000);
-};
+}
 
 function characterSelect() {
-  document.getElementById("root").textContent = "something else";
+  document.getElementById("root").innerHTML = `
+    <h1 class="red">Choose your player!</h1>
+    <p>What's your name??</p>
+  `;
   generateCards();
 }
 
-startGame("Hello");
+document.getElementsByTagName("button")[0].addEventListener(
+  "click",
+  (e) => {
+    startGame("Hello");
+  },
+  { once: true }
+);
 
 function generateCards() {
+  //   this is to reset it if I need to run generateCards again
+  gameState.stackedDeck = new Array(16).fill({
+    id: null,
+    isBad: false,
+    isFlipped: false,
+  });
   const cardsToTurnBad = sixRandNums();
   gameState.stackedDeck = gameState.stackedDeck.map((card, index) => {
     return { ...card, id: index + 1 };
