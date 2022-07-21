@@ -75,3 +75,51 @@ button {
 .box2 {
     grid-row: 1;
 }
+
+#game {
+    display: grid;
+    width: 75vw;
+    height: 75vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    align-items:flex-start;
+    justify-items:center;
+}
+.game-card {
+    width: 9vw;
+    height: 13vh;
+    border: 1px solid;
+    background-color: white;
+    background-image: url('../assets/card.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.game-card:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.good {
+    width: 9vw;
+    height: 13vh;
+    border: 1px solid;
+    background-color: white;
+    background-image: url('../assets/good.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bad {
+    width: 9vw;
+    height: 13vh;
+    border: 1px solid;
+    background-color: white;
+    background-image: url('../assets/bad.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

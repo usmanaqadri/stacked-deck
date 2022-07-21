@@ -1,46 +1,49 @@
 // global game state object that will be updated throughout the game. Right now initialized with default values
 
-const gameState = {
-  players: [
-    {
-      id: 1,
-      name: "",
-      isHuman: true,
-      isAlive: true,
-    },
-    {
-      id: 2,
-      name: "",
-      isHuman: false,
-      isAlive: true,
-    },
-    {
-      id: 3,
-      name: "",
-      isHuman: false,
-      isAlive: true,
-    },
-    {
-      id: 4,
-      name: "",
-      isHuman: false,
-      isAlive: true,
-    },
-  ],
-  stackedDeck: new Array(16).fill({
-    id: null,
-    isBad: false,
-    isFlipped: false,
-  }),
-};
-
 function startGame() {
+  window.gameState = {
+    players: [
+      {
+        id: 1,
+        name: "",
+        isHuman: true,
+        isAlive: true,
+      },
+      {
+        id: 2,
+        name: "",
+        isHuman: false,
+        isAlive: true,
+      },
+      {
+        id: 3,
+        name: "",
+        isHuman: false,
+        isAlive: true,
+      },
+      {
+        id: 4,
+        name: "",
+        isHuman: false,
+        isAlive: true,
+      },
+    ],
+    stackedDeck: new Array(16).fill({
+      id: null,
+      isBad: false,
+      isFlipped: false,
+    }),
+    currentPlayer: null,
+  };
   characterSelect();
 }
 
+document.getElementsByTagName("button")[0].addEventListener("click", () => {
+  startGame();
+});
 function characterSelect() {
   document.getElementById("root").innerHTML = `
-    <h1 class="red">Choose your player!</h1>
+  <h1 class="red">Choose your player!</h1>
     <h2 id="current-select">Player 1 select:</h2>
     <div class="character-grid">
         <div class="box">Mario</div>
@@ -109,14 +112,6 @@ function characterSelect() {
   generateCards();
 }
 
-document.getElementsByTagName("button")[0].addEventListener(
-  "click",
-  (e) => {
-    startGame("Hello");
-  },
-  { once: true }
-);
-
 function generateCards() {
   //   this is to reset it if I need to run generateCards again
   gameState.stackedDeck = new Array(16).fill({
@@ -149,7 +144,68 @@ function sixRandNums() {
 }
 
 function playGame() {
+  // let currPlayerIndex = 0;
+  gameState.currentPlayer = gameState.players[Math.floor(Math.random() * 4)];
   document.getElementById("root").innerHTML = `
-    <h1>START!</h1>
+    <h1>Player ${gameState.currentPlayer.id}, pick a card!</h1>
+    <div class="game-container">
+      <div id="game">
+      </div>
+    </div>
   `;
+  console.log(gameState);
+  const cardDivs = new Array(16).fill(`
+    <div class="game-card"></div>
+  `);
+  cardDivs.forEach(
+    (card) => (document.getElementById("game").innerHTML += card)
+  );
+  function handleCardClick(e) {
+    const cardId = e.target.getAttribute("id").substring(4);
+    // console.log(gameState.currentPlayer);
+    // console.log(cardId);
+    gameState.stackedDeck.forEach((card) => {
+      if (card.id == cardId) {
+        card.isFlipped = true;
+        if (card.isBad) {
+          alert(
+            `Player ${gameState.currentPlayer.id} has flipped a bad card and is out`
+          );
+          gameState.currentPlayer.isAlive = false;
+          e.target.setAttribute("class", "bad");
+        } else {
+          e.target.setAttribute("class", "good");
+        }
+      }
+    });
+    if (
+      gameState.players.indexOf(gameState.currentPlayer) ===
+      gameState.players.length - 1
+    ) {
+      gameState.currentPlayer = gameState.players[0];
+    } else {
+      gameState.currentPlayer =
+        gameState.players[
+          gameState.players.indexOf(gameState.currentPlayer) + 1
+        ];
+    }
+
+    document.getElementById(
+      "root"
+    ).firstElementChild.textContent = `Player ${gameState.currentPlayer.id}, pick a card!`;
+    gameState.players = gameState.players.filter(
+      (player) => player.isAlive === true
+    );
+    console.log(gameState);
+    if (gameState.players.length === 1) {
+      alert(`Player ${gameState.currentPlayer.id} has won!`);
+      document.getElementById("root").innerHTML = `
+      <button onclick='startGame()'>Play again</button>
+      `;
+    }
+  }
+  document.querySelectorAll(".game-card").forEach((element, index) => {
+    element.setAttribute("id", `card${index + 1}`);
+    element.addEventListener("click", handleCardClick);
+  });
 }
