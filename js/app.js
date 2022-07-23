@@ -125,6 +125,15 @@ function characterSelect() {
         document.getElementById("current-select").innerHTML = `
           <h2>Press Enter to start playing!</h2>
         `;
+
+        // removing mouseover and out event listeners so no more errors
+        const characterDivs = document
+          .querySelector(".character-grid")
+          .querySelectorAll("div");
+        characterDivs.forEach((div) => {
+          div.removeEventListener("mouseover", handleHover);
+          div.removeEventListener("mouseout", handleLeave);
+        });
       }
       gameState.players.forEach((player) => {
         if (player.id === counter) {
