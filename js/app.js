@@ -90,7 +90,6 @@ function characterSelect() {
   // this counter is how we're going to update Player 1-4s character selection when we click
   let counter = 1;
   function handleHover(e) {
-    console.log(e.target);
     const playerDivs = document
       .querySelector(".player-grid")
       .querySelectorAll("div");
@@ -139,7 +138,7 @@ function characterSelect() {
         .classList.remove("move", "blackbox");
       counter++;
     } else {
-      console.log(e.target);
+      // console.log(e.target);
     }
   }
   function handleEnter(e) {
