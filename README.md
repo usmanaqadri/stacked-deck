@@ -36,7 +36,7 @@ As a player, at the end of the game I want to be able to select rematch, change 
 
 
 ### Explanation of Tech
-I essentially used a <div id="root"> to grab and update the innerHTML in each screen
+I essentially used a div id="root" to grab and update the innerHTML in each screen
 Initialized a a global game state object in the beginning that would be updated with certain interactions
 
 ### Future improvements (in order of ease)
