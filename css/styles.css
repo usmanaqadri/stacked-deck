@@ -48,6 +48,10 @@ h1, h2 {
     font-family: 'Black Ops One', cursive;
 }
 
+h2 {
+    font-size: 1.2em;
+}
+
 .character-select-header {
     color: yellowgreen;
 }

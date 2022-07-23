@@ -35,13 +35,17 @@ As a player, at the end of the game I want to be able to select rematch, change 
 
 
 
-### MVP Goals
-Add an option for playing against a friend or a computer at the beginning.
-Have a choose your player screen with different sprites
-After clicking play/start, display a grid/array of facedown cards. 
-When someone is eliminated announce their elimination
-Announce the winner at the end
-It needs to be visually appealing and use canvas
+### Explanation of Tech
+I essentially used a <div id="root"> to grab and update the innerHTML in each screen
+Initialized a a global game state object in the beginning that would be updated with certain interactions
+
+### Future improvements (in order of ease)
+instead of using alert build my own custom pop-up when someone is out
+add ability for computers to play
+add a flip effect on the cards
+have the cards appear faceup, and then shuffle animation, so it's more of a memory game than pure chance
+
+
 
 
 ### Stretch Goals
