@@ -1,5 +1,5 @@
 # stacked-deck
-stacked cards
+[stacked deck](https://usmanaqadri.github.io/stacked-deck/)
 
 ## Project Description
 Turn-based game. There are a stack of cards with good cards and then there are a few bad cards shuffled in it. The cards are flipped over and arranged in a grid. If you choose a bad card you lose. Last one standing is the winner. 
