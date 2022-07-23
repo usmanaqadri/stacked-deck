@@ -103,11 +103,6 @@ h2 {
     align-items: center;
 }
 
-.character-img {
-    height: 100px;
-    
-}
-
 .move {
     animation: charactermove 1s infinite;
 }

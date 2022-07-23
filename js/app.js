@@ -4,24 +4,28 @@ function startGame() {
     players: [
       {
         id: 1,
+        designation: "Player 1",
         name: "",
         isHuman: true,
         isAlive: true,
       },
       {
         id: 2,
+        designation: "Player 2",
         name: "",
         isHuman: false,
         isAlive: true,
       },
       {
         id: 3,
+        designation: "Player 3",
         name: "",
         isHuman: false,
         isAlive: true,
       },
       {
         id: 4,
+        designation: "Player 4",
         name: "",
         isHuman: false,
         isAlive: true,
@@ -55,19 +59,19 @@ function characterSelect() {
     </div>
     <div class="player-grid">
         <div class="box2">
-          <p contentEditable="true">Player 1:</p>
+          <p contentEditable="true">Player 1</p>
           <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
-          <p contentEditable="true">Player 2:</p> 
+          <p contentEditable="true">Player 2</p> 
           <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
-          <p contentEditable="true">Player 3:</p>
+          <p contentEditable="true">Player 3</p>
           <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
-          <p contentEditable="true">Player 4:</p>
+          <p contentEditable="true">Player 4</p>
           <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
     </div>
@@ -144,6 +148,12 @@ function characterSelect() {
   function handleEnter(e) {
     if (e.key === "Enter") {
       e.preventDefault();
+      const playerBoxes = document.querySelectorAll(".box2");
+      playerBoxes.forEach(
+        (player, index) =>
+          (gameState.players[index].designation =
+            player.firstElementChild.innerText)
+      );
       playGame();
     }
   }
@@ -190,7 +200,7 @@ function playGame() {
   document.getElementById("root").innerHTML = `
   <audio src="./assets/music/stage0.mp3" id="stage-music"></audio>
   <audio loop src="./assets/music/stage1.mp3" id="stage-music1"></audio>
-  <h1>Player ${gameState.currentPlayer.id}, pick a card!</h1>
+  <h1>${gameState.currentPlayer.designation}, pick a card!</h1>
   <div class="game-container">
   <div id="game">
   </div>
@@ -222,7 +232,7 @@ function playGame() {
       if (card.id == cardId) {
         if (card.isBad) {
           alert(
-            `Player ${gameState.currentPlayer.id} has flipped a bad card and has been eliminated.`
+            `${gameState.currentPlayer.designation} has flipped a bad card and has been eliminated.`
           );
           gameState.currentPlayer.isAlive = false;
           e.target.setAttribute("class", "bad");
@@ -249,7 +259,7 @@ function playGame() {
       .getElementById("root")
       .querySelector(
         "h1"
-      ).textContent = `Player ${gameState.currentPlayer.id}, pick a card!`;
+      ).textContent = `${gameState.currentPlayer.designation}, pick a card!`;
 
     // this is to update our gameState object to have only players still alive
     gameState.players = gameState.players.filter(
@@ -262,10 +272,11 @@ function playGame() {
         .getElementById("root")
         .querySelector(
           "h1"
-        ).textContent = `Player ${gameState.currentPlayer.id} has won!`;
+        ).textContent = `${gameState.currentPlayer.designation} has won!`;
 
       // removed board and give option to play again
       document.getElementById("root").lastElementChild.innerHTML = `
+      <img class="move" height = "200px" src="./assets/characters/${gameState.players[0].name.toLowerCase()}.webp"/>
       <button onclick='startGame()'>Play again</button>
       `;
     }
