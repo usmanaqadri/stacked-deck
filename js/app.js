@@ -39,8 +39,8 @@ function startGame() {
 
 function characterSelect() {
   document.getElementById("root").innerHTML = `
-  <audio src="../assets/music/character0.mp3" id="character-music"></audio>
-  <audio loop src="../assets/music/character1.mp3" id="character-music1"></audio>
+  <audio src="./assets/music/character0.mp3" id="character-music"></audio>
+  <audio loop src="./assets/music/character1.mp3" id="character-music1"></audio>
   <h1 class="character-select-header">Choose your player!</h1>
     <h2 id="current-select">Player 1 select:</h2>
     <div class="character-grid">
@@ -56,19 +56,19 @@ function characterSelect() {
     <div class="player-grid">
         <div class="box2">
           <p contentEditable="true">Player 1:</p>
-          <img class="blackbox" height = "100px" src="../assets/blackbox.jpg"/>
+          <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
           <p contentEditable="true">Player 2:</p> 
-          <img class="blackbox" height = "100px" src="../assets/blackbox.jpg"/>
+          <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
           <p contentEditable="true">Player 3:</p>
-          <img class="blackbox" height = "100px" src="../assets/blackbox.jpg"/>
+          <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
         <div class="box2">
           <p contentEditable="true">Player 4:</p>
-          <img class="blackbox" height = "100px" src="../assets/blackbox.jpg"/>
+          <img class="blackbox" height = "100px" src="./assets/blackbox.jpg"/>
         </div>
     </div>
   `;
@@ -96,7 +96,7 @@ function characterSelect() {
       .querySelectorAll("div");
     playerDivs[counter - 1].querySelector(
       "img"
-    ).src = `../assets/characters/${e.target.innerText.toLowerCase()}.webp`;
+    ).src = `./assets/characters/${e.target.innerText.toLowerCase()}.webp`;
     playerDivs[counter - 1].querySelector("img").classList.remove("blackbox");
     playerDivs[counter - 1].querySelector("img").classList.add("move");
   }
@@ -105,7 +105,7 @@ function characterSelect() {
       .querySelector(".player-grid")
       .querySelectorAll("div")
       [counter - 1].querySelector("img");
-    currBox.src = "../assets/blackbox.jpg";
+    currBox.src = "./assets/blackbox.jpg";
     currBox.classList.add("blackbox");
   }
   function handleClick(e) {
@@ -133,7 +133,7 @@ function characterSelect() {
         .querySelectorAll("div");
       playerDivs[counter - 1].querySelector(
         "img"
-      ).src = `../assets/characters/${e.target.innerText.toLowerCase()}.webp`;
+      ).src = `./assets/characters/${e.target.innerText.toLowerCase()}.webp`;
       playerDivs[counter - 1]
         .querySelector("img")
         .classList.remove("move", "blackbox");
@@ -189,8 +189,8 @@ function playGame() {
 
   // this renders our root with the gameboard
   document.getElementById("root").innerHTML = `
-  <audio src="../assets/music/stage0.mp3" id="stage-music"></audio>
-  <audio loop src="../assets/music/stage1.mp3" id="stage-music1"></audio>
+  <audio src="./assets/music/stage0.mp3" id="stage-music"></audio>
+  <audio loop src="./assets/music/stage1.mp3" id="stage-music1"></audio>
   <h1>Player ${gameState.currentPlayer.id}, pick a card!</h1>
   <div class="game-container">
   <div id="game">
