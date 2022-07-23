@@ -16,9 +16,9 @@ body {
 }
 #root {
     width: 80%;
-    height: 80%;
+    height: 90vh;
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
