@@ -40,17 +40,9 @@ I essentially used a <div id="root"> to grab and update the innerHTML in each sc
 Initialized a a global game state object in the beginning that would be updated with certain interactions
 
 ### Future improvements (in order of ease)
+allow customizability of the name (i.e. Player 1 can be renamed to whatever you want)
 instead of using alert build my own custom pop-up when someone is out
 add ability for computers to play
 add a flip effect on the cards
 have the cards appear faceup, and then shuffle animation, so it's more of a memory game than pure chance
 
-
-
-
-### Stretch Goals
-If you click a card, it should have a nice flip effect
-Make it more complex with the addition of special cards that award an extra life
-add background music
-add a timer to decide 
-add animation 
