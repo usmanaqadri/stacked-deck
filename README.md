@@ -2,7 +2,6 @@
 stacked cards
 
 ## Project Description
-> A short description of your game.
 Turn-based game. There are a stack of cards with good cards and then there are a few bad cards shuffled in it. The cards are flipped over and arranged in a grid. If you choose a bad card you lose. Last one standing is the winner. 
 
 Trying to recreate THIS: https://www.youtube.com/watch?v=WbsvW4voSIY
@@ -27,7 +26,6 @@ Game over:
 
 
 ## User Stories
-> Add user stories following the _As a [type of user], I want [what the user wants], so that [what it helps accomplish]_ format.
 
 As a player, I want to be able to choose my own unique character
 As a player, I want to be able to select a difficulty level (more bad cards in the pile)
