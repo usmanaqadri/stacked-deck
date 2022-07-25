@@ -48,14 +48,14 @@ function characterSelect() {
   <h1 class="character-select-header">Choose your player!</h1>
     <h2 id="current-select">Player 1 select:</h2>
     <div class="character-grid">
-        <div class="box">Mario</div>
-        <div class="box">DK</div>
-        <div class="box">Link</div>
-        <div class="box">Fox</div>
-        <div class="box">Yoshi</div>
-        <div class="box">Pikachu</div>
-        <div class="box">Kirby</div>
-        <div class="box">Samus</div>
+        <div id="mario-box" class="box"><p>Mario</p></div>
+        <div id="dk-box" class="box"><p>DK</p></div>
+        <div id="link-box" class="box"><p>Link</p></div>
+        <div id="fox-box" class="box"><p>Fox</p></div>
+        <div id="yoshi-box" class="box"><p>Yoshi</p></div>
+        <div id="pikachu-box" class="box"><p>Pikachu</p></div>
+        <div id="kirby-box" class="box"><p>Kirby</p></div>
+        <div id="samus-box" class="box"><p>Samus</p></div>
     </div>
     <div class="player-grid">
         <div class="box2">
@@ -137,7 +137,7 @@ function characterSelect() {
       }
       gameState.players.forEach((player) => {
         if (player.id === counter) {
-          player.name = e.target.innerHTML;
+          player.name = e.target.firstElementChild.innerHTML;
         }
       });
       const playerDivs = document
@@ -235,6 +235,7 @@ function playGame() {
 
   function handleCardClick(e) {
     // this strips the clicked cards ID to just the number
+    e.target.classList.add("flipcard");
     const cardId = e.target.getAttribute("id").substring(4);
 
     gameState.stackedDeck.forEach((card) => {
@@ -285,7 +286,7 @@ function playGame() {
 
       // removed board and give option to play again
       document.getElementById("root").lastElementChild.innerHTML = `
-      <img class="move" height = "200px" src="./assets/characters/${gameState.players[0].name.toLowerCase()}.webp"/>
+      <img class="victor-move" height = "200px" src="./assets/characters/${gameState.players[0].name.toLowerCase()}.webp"/>
       <button onclick='startGame()'>Play again</button>
       `;
     }
