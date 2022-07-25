@@ -92,6 +92,10 @@ h2 {
     justify-content: flex-end;
     align-items: baseline; */
 }
+
+.box > * {
+    pointer-events: none;
+  }
 #mario-box {
     background-image: url("../assets/characters/mario1.webp");
 }
@@ -120,6 +124,7 @@ h2 {
     background-image: url("../assets/characters/samus1.webp");
 }
 .box p {
+    user-select: none;
     position: relative;
     bottom: 92%;
     right: 32%;

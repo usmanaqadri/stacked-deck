@@ -28,10 +28,9 @@ Game over:
 ## User Stories
 
 As a player, I want to be able to choose my own unique character
-As a player, I want to be able to select a difficulty level (more bad cards in the pile)
 As a player, I should be able to click the card I want with the mouse to reveal it
 As a player, I should NOT be able to click a card when it's another player/computer's turn
-As a player, at the end of the game I want to be able to select rematch, change character, change difficulty
+As a player, at the end of the game I want to be able to select rematch and choose a character again
 
 
 
@@ -40,7 +39,6 @@ I essentially used a div id="root" to grab and update the innerHTML in each scre
 Initialized a a global game state object in the beginning that would be updated with certain interactions
 
 ### Future improvements (in order of ease)
-allow customizability of the name (i.e. Player 1 can be renamed to whatever you want)
 instead of using alert build my own custom pop-up when someone is out
 add ability for computers to play
 add a flip effect on the cards

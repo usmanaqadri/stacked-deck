@@ -1,3 +1,9 @@
+window.onload = () => {
+  document.getElementById("root").innerHTML = `
+  <button onclick="startGame()">Start</button>
+  `;
+};
+
 function startGame() {
   // When we start the game, we want to create our global game state object that will be updated throughout the game. Right now initialized with default values
   window.gameState = {
@@ -45,6 +51,7 @@ function characterSelect() {
   document.getElementById("root").innerHTML = `
   <audio src="./assets/music/character0.mp3" id="character-music"></audio>
   <audio loop src="./assets/music/character1.mp3" id="character-music1"></audio>
+  <audio src = "" id="character-select"></audio>
   <h1 class="character-select-header">Choose your player!</h1>
     <h2 id="current-select">Player 1 select:</h2>
     <div class="character-grid">
@@ -114,6 +121,10 @@ function characterSelect() {
   function handleClick(e) {
     // handleLeave();
     if (counter <= 4) {
+      document.getElementById(
+        "character-select"
+      ).src = `./assets/music/${e.target.firstElementChild.innerHTML.toLowerCase()}.mp3`;
+      document.getElementById("character-select").play();
       document.getElementById("current-select").textContent = `Player ${
         counter + 1
       } select:`;
