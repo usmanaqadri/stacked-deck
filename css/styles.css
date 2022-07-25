@@ -127,7 +127,7 @@ h2 {
     margin-top: 5vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 90px;
+    grid-gap: 7vw;
     align-items: center;
     justify-content: flex-end;
 }
