@@ -31,18 +31,31 @@ body {
 }
 
 button {
-    padding: 30px; 
-    position:absolute;
-    top:50%; 
-    left:50%;
-    transform: translate(-50%, -50%);
-    background-color: lightgray;
-    text-shadow: -1px -1px black, 1px 1px white;
-    border-radius: 7px;
-    box-shadow: 0 .2em gray; 
-    cursor: pointer;
-    font-weight:200;
+  padding: 30px;
+  position: absolute;
+  top:50%; 
+  left:50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  font-weight:200;
+  font-family: 'Press Start 2P', cursive;
 }
+
+button:hover{
+    filter: brightness(95%);
+}
+
+button:active {
+    box-shadow: 0 5px #666;
+    transform: translate(-50%, -40%);
+  }
 
 h1, h2 {
     font-family: 'Black Ops One', cursive;
@@ -80,31 +93,31 @@ h2 {
     align-items: baseline; */
 }
 #mario-box {
-    background-image: url("../assets/characters/mario.png");
+    background-image: url("../assets/characters/mario1.webp");
 }
 #dk-box {
-    background-image: url("../assets/characters/dk.png");
+    background-image: url("../assets/characters/dk1.webp");
 }
 #link-box {
-    background-image: url("../assets/characters/link.png");
+    background-image: url("../assets/characters/link1.webp");
 }
 #fox-box {
-    background-image: url("../assets/characters/fox.png");
+    background-image: url("../assets/characters/fox1.webp");
 }
 #yoshi-box {
-    background-image: url("../assets/characters/yoshi.png");
+    background-image: url("../assets/characters/yoshi1.webp");
     background-position: 1vw;
 }
 #pikachu-box {
-    background-image: url("../assets/characters/pikachu.png");
+    background-image: url("../assets/characters/pikachu1.webp");
     background-position: right;
 }
 #kirby-box {
-    background-image: url("../assets/characters/kirby.png");
+    background-image: url("../assets/characters/kirby1.webp");
     background-position: 1vh;
 }
 #samus-box {
-    background-image: url("../assets/characters/samus.png");
+    background-image: url("../assets/characters/samus1.webp");
 }
 .box p {
     position: relative;
@@ -154,6 +167,10 @@ h2 {
 
 .flipcard {
     animation: flip-card 4s linear;
+}
+
+.play-again {
+    margin-top: 30px;
 }
  
 @keyframes flip-card {

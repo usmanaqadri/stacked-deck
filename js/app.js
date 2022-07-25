@@ -287,7 +287,7 @@ function playGame() {
       // removed board and give option to play again
       document.getElementById("root").lastElementChild.innerHTML = `
       <img class="victor-move" height = "200px" src="./assets/characters/${gameState.players[0].name.toLowerCase()}.webp"/>
-      <button onclick='startGame()'>Play again</button>
+      <button class="play-again" onclick='startGame()'>Play again</button>
       `;
     }
   }
