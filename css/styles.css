@@ -1,3 +1,7 @@
+* {
+    font-family: 'Black Ops One', cursive;
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -118,15 +122,15 @@ h2 {
 }
 #kirby-box {
     background-image: url("../assets/characters/kirby1.webp");
-    background-position: 1vh;
 }
 #samus-box {
     background-image: url("../assets/characters/samus1.webp");
 }
 .box p {
+    font-size: 0.7em;
     user-select: none;
     position: relative;
-    bottom: 92%;
+    bottom: 73%;
     right: 32%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
