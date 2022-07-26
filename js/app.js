@@ -233,16 +233,7 @@ function playGame() {
   document.getElementById("root").classList.add("gameboard");
   // so we don't have to see 16 lines of the same thing
   const cardDivs = new Array(16).fill(`
-  <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="./assets/card.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <img src="">
-    </div>
-  </div>
-</div>
+  <div class="game-card"></div>
   `);
   cardDivs.forEach(
     (card) => (document.getElementById("game").innerHTML += card)
